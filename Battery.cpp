@@ -1,13 +1,20 @@
 #include "Part.h"
 #include "Battery.h"
 
-class Battery : public RoboPart {
+//getters
+int getCurrentCharge(){
+    return Battery::current_charge;
+}
 
-  public:
-    int getCurrentPower(){
-        return current_power;
-    }
-    int getMaxPower(){
-        return max_power;
-    }
+int getMaxCharge(){
+    return Battery::max_charge;
+}
+
+//setters
+void setCurrentCharge(int b_current_charge){
+    Battery::current_charge = b_current_charge;
+}
+
+void setMaxCharge(int b_max_charge){
+    Battery::max_charge = b_max_charge;
 }

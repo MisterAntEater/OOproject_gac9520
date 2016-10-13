@@ -4,10 +4,15 @@
 
 class Battery {
   public:
-    Battery(int max_charge, int current_charge) : max_charge(max_charge), current_charge(current_charge) { }
+    Battery(int max_charge, int current_charge) : Part(Part::battery), max_charge(b_max_charge), current_charge(b_current_charge) { }
 
+    //getters
     double getCurrentCharge();
     double getMaxCharge();
+
+    //setters
+    void setCurrentCharge(int b_current_charge);
+    void setMaxCharge(int b_max_charge);
 
   private:
     int max_charge;

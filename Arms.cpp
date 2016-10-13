@@ -1,22 +1,24 @@
 #include "Part.h"
 #include "Arms.h"
 
-Arms::int powerConsumed(int speed){
-
+Arms::int powerConsumed(int a_speed){
+    return consumption_rate * a_speed;
 }
 
 //setters
-Arms::setType(){
-    
+Arms::void setType(int a_arm_type){
+    Arms::arm_type = a_arm_type;
 }
 
-Arms::setSpeed(){
-
+Arms::void setSpeed(int a_speed){
+    Arms::speed = a_speed;
 }
 
-Arms::int getPowerConsumed(){
-    return power;
+//getters
+Arms::int getArmType(){
+    return Arms::arm_type;
 }
-Arms::int getType(){
-    return type;
+
+Arms::int getSpeed(){
+    return Arms::speed;
 }

@@ -3,13 +3,13 @@
 
 class Arms : public Part{
   public:
-    Arms(int p_part_type, a_arm_type) : Part(p_part_type), arm_type(a_arm_type) { }
+    Arms(a_arm_type) : Part(Part::arm), arm_type(a_arm_type) { }
 
-    int powerConsumed(int speed);
+    int powerConsumed(int a_speed);
 
     //setters
     int setType(int a_arm_type);
-    void setSpeed(int speed);
+    void setSpeed(int a_speed);
 
     //getters
     int getType();

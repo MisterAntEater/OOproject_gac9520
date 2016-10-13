@@ -31,7 +31,13 @@ class Part {
     double getCost();
     string getName();
     string getDescription();
-    
+
+    //type
+    static const int torso = 0;
+    static const int head = 1;
+    static const int arm = 2;
+    static const int locomotor = 3;
+    static const int battery = 4;
   private:
     int part_number;
     int part_type

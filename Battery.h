@@ -2,13 +2,13 @@
 #define __BATTERY_H 201609
 #include "string"
 
-class Battery {
+class Battery : public Part{
   public:
-    Battery(int max_charge, int current_charge) : Part(Part::battery), max_charge(b_max_charge), current_charge(b_current_charge) { }
+    Battery(int p_part_type, int b_max_charge, int b_current_charge) : Part(p_part_type), max_charge(b_max_charge), current_charge(b_current_charge) { }
 
     //getters
-    double getCurrentCharge();
-    double getMaxCharge();
+    int getCurrentCharge();
+    int getMaxCharge();
 
     //setters
     void setCurrentCharge(int b_current_charge);

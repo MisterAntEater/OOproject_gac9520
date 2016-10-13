@@ -1,14 +1,17 @@
 #ifndef __ARMS_H
-#define __ARMS_H 201609
+#define __ARMS_H 2016
+
+#include "Part.h"
 
 class Arms : public Part{
   public:
-    Arms(a_arm_type) : Part(Part::arm), arm_type(a_arm_type) { }
+    Arms(int p_part_type, int a_arm_type)
+    : Part(p_part_type), arm_type(a_arm_type) { }
 
     int powerConsumed(int a_speed);
 
     //setters
-    int setType(int a_arm_type);
+    void setType(int a_arm_type);
     void setSpeed(int a_speed);
 
     //getters
@@ -24,5 +27,6 @@ class Arms : public Part{
 
     int arm_type;
     int speed;
+    int consumption_rate;
 };
 #endif

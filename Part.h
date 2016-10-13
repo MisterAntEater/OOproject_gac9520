@@ -1,12 +1,6 @@
 #ifndef __PART_H
 #define __PART_H 201609
 
-#include "arms.h"
-#include "locomotor.h"
-#include "head.h"
-#include "torso.h"
-#include "std_lib_facilities.h"
-
 #include <iostream>
 #include <string>
 
@@ -18,7 +12,7 @@ class Part {
 
     //setters
     void setPartNumber(int p_part_number);
-    void setPartType(int p_part_type);
+    void setType(int p_part_type);
     void setWeight(double p_weight);
     void setCost(double p_cost);
     void setName(string p_name);
@@ -26,7 +20,7 @@ class Part {
 
     //getters
     int getPartNumber();
-    int getPartType(); 
+    int getType(); 
     double getWeight();
     double getCost();
     string getName();
@@ -40,10 +34,10 @@ class Part {
     static const int battery = 4;
   private:
     int part_number;
-    int part_type
+    int part_type;
     double weight;
     double cost;
-    String name;
-    String description;
+    string name;
+    string description;
 };
 #endif

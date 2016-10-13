@@ -1,11 +1,11 @@
 #include "Part.h"
 #include "Battery.h"
-#include "Arms.h"
+#include "Arm.h"
 
 int main(){
 
     Battery test_bat = Battery(4, 10, 42);
-    Arms test_arm = Arms(2, 3);
+    Arm test_arm = Arm(2, 3);
     int x;
     string name;
 

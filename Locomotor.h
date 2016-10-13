@@ -3,26 +3,27 @@
 
 class Locomotor : public Part{
   public:
-    Locomotor(l_loco_type) : Part(Part::Locomotor), loco_type(l_loco_type) { }
+    Locomotor(int p_part_type, int l_loco_type) : Part(p_part_type), loco_type(l_loco_type) { }
 
     int powerConsumed(int a_speed);
 
     //setters
-    int setType(int a_arm_type);
-    void setSpeed(int a_speed);
+    void setType(int l_loco_type);
+    void setSpeed(int l_speed);
 
     //getters
     int getType();
     int getSpeed();
 
-  private:
-    static const int strong = 0;
-    static const int drill = 1;
-    static const int machinegun = 2;
-    static const int hammer = 3;
+    static const int legs = 0;
+    static const int flippers = 1;
+    static const int propellors = 2;
+    static const int treads = 3;
     static const int num_types = 4;
 
-    int arm_type;
+  private:
+    int consumption_rate;
+    int loco_type;
     int speed;
 };
 #endif

@@ -1,5 +1,5 @@
 #include "Part.h"
-//setters
+//getters
 int Part::getType(){
     return Part:: part_type;
 }
@@ -24,7 +24,7 @@ string Part::getDescription(){
     return Part:: description;
 }
 
-//getters
+//setters
 void Part::setType(int p_part_type){
     Part::part_type=p_part_type;
 }

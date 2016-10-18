@@ -1,24 +1,20 @@
 #include "Part.h"
 #include "Locomotor.h"
 
-int Locomotor::powerConsumed(int l_speed){
-    return consumption_rate * l_speed;
-}
-
 //setters
-void Locomotor::setType(int l_loco_type){
-    Locomotor::loco_type = l_loco_type;
+void Locomotor::setMaxSpeed(int speed){
+    Locomotor::max_speed = speed;
 }
 
-void Locomotor::setSpeed(int l_speed){
-    Locomotor::speed = l_speed;
+void Locomotor::setPowerConsumed(double rate){
+    Locomotor::power_consumed = rate;
 }
 
 //getters
-int Locomotor::getType(){
-    return Locomotor::loco_type;
+int Locomotor::getMaxSpeed(){
+    return Locomotor::max_speed;
 }
 
-int Locomotor::getSpeed(){
-    return Locomotor::speed;
+double Locomotor::getPowerConsumed(){
+    return Locomotor::power_consumed;
 }

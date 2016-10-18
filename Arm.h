@@ -5,28 +5,15 @@
 
 class Arm : public Part{
   public:
-    Arm(int p_part_type, int a_arm_type)
-    : Part(p_part_type), arm_type(a_arm_type) { }
-
-    int powerConsumed(int a_speed);
+    Arm(): Part(Part::arm){ }
 
     //setters
-    void setType(int a_arm_type);
-    void setSpeed(int a_speed);
+    void setPowerConsumed(double rate);
 
     //getters
-    int getType();
-    int getSpeed();
+    double getPowerConsumed();
 
   private:
-    static const int strong = 0;
-    static const int drill = 1;
-    static const int machinegun = 2;
-    static const int hammer = 3;
-    static const int num_types = 4;
-
-    int arm_type;
-    int speed;
-    int consumption_rate;
+    double power_consumed;
 };
 #endif

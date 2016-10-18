@@ -1,50 +1,50 @@
 #include "Part.h"
 //getters
-int Part::getType(){
-    return Part:: part_type;
+int Part::getPartType(){
+    return Part::part_type;
 }
 
-int Part::getPartNumber(){
-    return Part:: part_number;
+string Part::getPartNumber(){
+    return Part::part_number;
 }
 
 double Part::getWeight(){
-    return Part:: weight;
+    return Part::weight;
 }
 
 double Part::getCost(){
-    return Part:: cost;
+    return Part::cost;
 }
 
 string Part::getName(){
-    return Part:: name;
+    return Part::name;
 }
 
 string Part::getDescription(){
-    return Part:: description;
+    return Part::description;
 }
 
 //setters
-void Part::setType(int p_part_type){
-    Part::part_type=p_part_type;
+void Part::setPartType(int p_type){
+    Part::part_type=p_type;
 }
 
-void Part::setPartNumber(int p_part_number){
-    Part::part_number=p_part_number;
+void Part::setPartNumber(string p_num){
+    Part::part_number = p_num;
 }
 
-void Part::setWeight(double p_weight){
-    Part::weight=p_weight;
+void Part::setWeight(double w){
+    Part::weight = w;
 }
 
-void Part::setCost(double p_cost){
-    Part::cost=p_cost;
+void Part::setCost(double c){
+    Part::cost = c;
 }
 
 void Part::setName(string p_name){
-    Part::name=p_name;
+    Part::name = p_name;
 }
 
-void Part::setDescription(string p_description){
-    Part::description=p_description;
+void Part::setDescription(string desc){
+    Part::description= desc;
 }

@@ -1,21 +1,19 @@
 #ifndef __BATTERY_H
 #define __BATTERY_H 201609
-#include "string"
+
+#include "Part.h"
 
 class Battery : public Part{
   public:
-    Battery(int p_part_type, int b_max_charge, int b_current_charge) : Part(p_part_type), max_charge(b_max_charge), current_charge(b_current_charge) { }
+    Battery() : Part(Part::battery) { }
 
     //getters
-    int getCurrentCharge();
-    int getMaxCharge();
+    int getEnergyContained();
 
     //setters
-    void setCurrentCharge(int b_current_charge);
-    void setMaxCharge(int b_max_charge);
+    void setEnergyContained(double energy);
 
   private:
-    int max_charge;
-    int current_charge;
+    double energy_contained;
 };
 #endif

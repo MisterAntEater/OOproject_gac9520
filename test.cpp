@@ -1,29 +1,34 @@
-#include "Part.h"
-#include "Battery.h"
 #include "Arm.h"
 
 int main(){
 
-    Battery test_bat = Battery(4, 10, 42);
-    Arm test_arm = Arm(2, 3);
-    int x;
-    string name;
+    Arm test_part = Arm();
+    double x;
+    char s[100];
 
-    x = test_arm.getType();
-    cout << "arm type: " << x << "\n";
+    cout << "Enter power: ";
+    cin >> x;
+    test_part.setPowerConsumed(x);
+    cout << "The test power is: " << test_part.getPowerConsumed() << "\n";
 
-    test_arm.setSpeed(42);
-    x = test_arm.getSpeed();
-    cout << "arm speed: " << x << "\n";
+    cout << "Enter name: ";
+    cin >> s;
+    test_part.setName(s);
+    cout << "The arm name is: " << test_part.getName() << "\n";
+/*
+    cout << "Enter description: ";
+    cin >> d;
+    test_part.setDescription(d);
+    cout << "The arm description is: " << test_part.getDescription() << "\n";
+*/
 
-    x = test_bat.getCurrentCharge();
-    cout << "current battery charge: " << x << "\n";
+    cout << "Enter part number: ";
+    cin >> s;
+    cout << s << "\n";
+    test_part.setPartNumber(s);
+    cout << "The part number is: " << test_part.getPartNumber() << "\n";
 
-    x = test_bat.getMaxCharge();
-    cout << "max battery charge: " << x << "\n";
-
-    test_bat.setName("Mr. Test");
-    cout << "the battery is named: " << test_bat.getName() << "\n";
-
-    return 1; 
+    cout << "wtf\n";
+    cin.clear();
+    return 0; 
 }

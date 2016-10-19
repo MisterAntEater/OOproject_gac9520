@@ -1,4 +1,23 @@
 #include "Part.h"
+#include "Battery.h"
+#include "Arm.h"
+#include "Locomotor.h"
+void Part::displayPart(){
+    switch (Part::part_type) {
+        case Part::head: cout << "\tType: Head\n";
+        case Part::torso: cout << "\tType: Head\n";
+        case Part::battery: cout << "\tType: Head\n";
+        case Part::arm: cout << "\tType: Head\n";
+        case Part::locomotor: cout << "\tType: Head\n";
+    }
+
+    cout << "\tName: " << Part::name << "\n";
+    cout << "\tNumber: " << Part::part_number << "\n";
+    cout << "\tDescription:\n\t" << Part::description << "\n";
+    cout << "\tWeight: " << Part::weight << "\n";
+    cout << "\tCost: " << Part::cost << "\n";
+}
+
 //getters
 int Part::getPartType(){
     return Part::part_type;

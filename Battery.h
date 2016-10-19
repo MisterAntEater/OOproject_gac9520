@@ -8,7 +8,7 @@ class Battery : public Part{
     Battery() : Part(Part::battery) { }
 
     //getters
-    int getEnergyContained();
+    double getEnergyContained();
 
     //setters
     void setEnergyContained(double energy);

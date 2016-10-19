@@ -24,6 +24,7 @@ class Model{
 
     double getTotalCost();
     double getMaxSpeed();
+    void displayModel();
 
     string getModelName();
     string getModelNumber();
@@ -34,8 +35,8 @@ class Model{
     void setSalesPrice(double price);
 
   private:
-    string model_name;
-    string model_number;
+    string model_name = "";
+    string model_number = "";
     double sales_price;
     Head head;
     Torso torso;

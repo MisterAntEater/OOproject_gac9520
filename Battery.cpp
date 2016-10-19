@@ -2,7 +2,7 @@
 #include "Battery.h"
 
 //getters
-int Battery::getEnergyContained(){
+double Battery::getEnergyContained(){
     return Battery::energy_contained;
 }
 

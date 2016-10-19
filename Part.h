@@ -10,6 +10,8 @@ class Part {
   public:
     Part(int p_part_type) : part_type(p_part_type){}
 
+    void displayPart();
+
     //setters
     void setPartNumber(string p_num);
     void setPartType(int p_type);

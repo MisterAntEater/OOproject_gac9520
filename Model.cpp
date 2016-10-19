@@ -37,6 +37,38 @@ double Model::getMaxSpeed(){
     return Model::locomotor.getMaxSpeed();
 }
 
+void Model::displayModel(){
+    int i;
+
+    cout << "--------------------\n";
+    cout << "Name: " << Model::model_name << "\n";
+    cout << "Number: " << Model::model_number << "\n";
+    cout << "Price: " << Model::sales_price << "\n";
+    cout << "Head: \n";
+    Model::head.displayPart();
+    cout << "\n";
+    cout << "Torso: \n";
+    Model::torso.displayPart();
+    cout << "\n";
+    cout << "Batter(y/ies): \n";
+    for(i=0; i<Model::batteries.size(); i++){
+        Model::batteries.at(i).displayPart();
+        cout << "\tEnergy: " << Model::batteries.at(i).getEnergyContained();
+        cout << "\n";
+    }
+    cout << "Arm(s): \n";
+    for(i=0; i<Model::arms.size(); i++){
+        Model::arms.at(i).displayPart();
+        cout << "\tPower consumed: " << Model::arms.at(i).getPowerConsumed();
+        cout << "\n";
+    }
+    cout << "Locomotor: ";
+    Model::locomotor.displayPart();
+    cout << "\tPower consumed: " << Model::locomotor.getPowerConsumed() << "\n";
+    cout << "\tSpeed: " << Model::getMaxSpeed() << "\n";
+    cout << "--------------------\n";
+}
+
 string Model::getModelName(){
     return Model::model_name;
 }

@@ -4,18 +4,28 @@
 #include "Locomotor.h"
 void Part::displayPart(){
     switch (Part::part_type) {
-        case Part::head: cout << "\tType: Head\n";
-        case Part::torso: cout << "\tType: Head\n";
-        case Part::battery: cout << "\tType: Head\n";
-        case Part::arm: cout << "\tType: Head\n";
-        case Part::locomotor: cout << "\tType: Head\n";
+        case Part::head:
+            cout << "\tType: Head\n";
+            break;
+        case Part::torso:
+            cout << "\tType: Torso\n";
+            break;
+        case Part::battery:
+            cout << "\tType: Battery\n";
+            break;
+        case Part::arm:
+            cout << "\tType: Arm\n";
+            break;
+        case Part::locomotor:
+            cout << "\tType: Locomotor\n";
+            break;
     }
 
-    cout << "\tName: " << Part::name << "\n";
-    cout << "\tNumber: " << Part::part_number << "\n";
-    cout << "\tDescription:\n\t" << Part::description << "\n";
-    cout << "\tWeight: " << Part::weight << "\n";
-    cout << "\tCost: " << Part::cost << "\n";
+    cout << "\tName:\t\t" << Part::name << "\n";
+    cout << "\tNumber:\t\t" << Part::part_number << "\n";
+    cout << "\tDescription:\t" << Part::description << "\n";
+    cout << "\tWeight:\t\t" << Part::weight << "\n";
+    cout << "\tCost:\t\t" << Part::cost << "\n";
 }
 
 //getters

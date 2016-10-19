@@ -22,11 +22,12 @@ void Model::addLocomotor(Locomotor l){
 
 double Model::getTotalCost(){
     double cost = 0.0;
+    int i;
 
     cost+=Model::head.getCost();
     cost+=Model::torso.getCost();
-    for(Battery i : Model::batteries){ cost+=i.getCost(); }
-    for(Arm i : Model::arms){ cost+=i.getCost(); }
+    for(i=0; Model::batteries.size(); i++){ cost+=Model::batteries.at(i).getCost(); }
+    for(i=0; Model::arms.size(); i++){ cost+=Model::arms.at(i).getCost(); }
     cost+=Model::locomotor.getCost();
 
     return cost;

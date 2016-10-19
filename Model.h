@@ -37,16 +37,13 @@ class Model{
     void setSalesPrice(double price);
 
   private:
-    static const int head = 0;
-    static const int torso = 1;
-    static const int battery = 2;
-    static const int arm = 3;
-    static const int locomotor = 4;
-
-    int part_count;
     string model_name;
     string model_number;
     double sales_price;
-    vector<Part> parts;
+    Head head;
+    Torso torso;
+    vector<Battery> batteries;
+    vector<Arm> arms;
+    Locomotor locomotor;
 };
 #endif

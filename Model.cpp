@@ -1,52 +1,39 @@
 #include "Model.h"
 
-void Model::addPart(Part p){
-    Model::parts.push_back(p);
+void Model::addHead(Head h){
+    Model::head = h;
 }
 
-int Model::hasSpace(int p_type){
-    int count = 0;
-
-    for(Part i: Model::parts){
-        if(i.getPartType() == p_type){ count++; }
-    }
-
-    switch (p_type) {
-        case Part::head :
-            if(count > 0){ return 0; }
-        case Part::torso :
-            if(count > 0){ return 0; }
-        case Part::battery :
-            if(count > 2){ return 0; }
-        case Part::arm :
-            if(count > 1){ return 0; }
-        case Part::locomotor :
-            if(count > 0){ return 0; }
-    }
-    return 1;
+void Model::addTorso(Torso t){
+    Model::torso = t;
 }
 
-vector<Part> Model::getParts(){
-    return Model::parts;
+void Model::addBattery(Battery b){
+    Model::batteries.push_back(b);
+}
+
+void Model::addArm(Arm a){
+    Model::arms.push_back(a);
+}
+
+void Model::addLocomotor(Locomotor l){
+    Model::locomotor = l;
 }
 
 double Model::getTotalCost(){
     double cost = 0.0;
 
-    for(Part i: Model::parts){
-        cost+=i.getCost();
-    }
+    cost+=Model::head.getCost();
+    cost+=Model::torso.getCost();
+    for(Battery i : Model::batteries){ cost+=i.getCost(); }
+    for(Arm i : Model::arms){ cost+=i.getCost(); }
+    cost+=Model::locomotor.getCost();
 
     return cost;
 }
 
 double Model::getMaxSpeed(){
-    for(Part i: Model::parts){
-        if(i.getPartType() == Part::locomotor){
-            return i.getMaxSpeed();
-        }
-    }
-    return -1;
+    return Model::locomotor.getMaxSpeed();
 }
 
 string Model::getModelName(){

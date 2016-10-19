@@ -22,11 +22,8 @@ class Model{
     void addArm(Arm a);
     void addLocomotor(Locomotor l);
 
-    int hasSpaceForPart(int p_type);
-
     double getTotalCost();
     double getMaxSpeed();
-    void displayParts();
 
     string getModelName();
     string getModelNumber();

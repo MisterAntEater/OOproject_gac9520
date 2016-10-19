@@ -10,20 +10,20 @@ rebuild: clean executable
 executable: Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o test.o
 	$(CXX) $(CXXFLAGS) Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o test.o
 Head.o: Head.cpp
-	$(CXX) $(CXXFLAGS) -w -c Head.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Head.cpp
 Torso.o: Torso.cpp
-	$(CXX) $(CXXFLAGS) -w -c Torso.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Torso.cpp
 Battery.o: Battery.cpp
-	$(CXX) $(CXXFLAGS) -w -c Battery.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Battery.cpp
 Arm.o: Arm.cpp
-	$(CXX) $(CXXFLAGS) -w -c Arm.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Arm.cpp
 Locomotor.o: Locomotor.cpp
-	$(CXX) $(CXXFLAGS) -w -c Locomotor.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Locomotor.cpp
 Part.o: Part.cpp
-	$(CXX) $(CXXFLAGS) -w -c Part.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Part.cpp
 Model.o: Model.cpp
-	$(CXX) $(CXXFLAGS) -w -c Model.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 Model.cpp
 test.o: test.cpp
-	$(CXX) $(CXXFLAGS) -w -c test.cpp
+	$(CXX) $(CXXFLAGS) -w -c -std=c++11 test.cpp
 clean:
 	rm -f *.o a.out

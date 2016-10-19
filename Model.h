@@ -10,24 +10,31 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Model{
   public:
-    void addPart(Part p);
-    int hasSpace(int p_type);
+    void addHead(Head h);
+    void addTorso(Torso t);
+    void addBattery(Battery b);
+    void addArm(Arm a);
+    void addLocomotor(Locomotor l);
 
-    Part[] getParts();
+    int hasSpaceForPart(int p_type);
+
     double getTotalCost();
     double getMaxSpeed();
+    void displayParts();
+
     string getModelName();
     string getModelNumber();
     double getSalesPrice();
 
     void setModelName(string m_name);
     void setModelNumber(string num);
-    void setSalesPrice();
+    void setSalesPrice(double price);
 
   private:
     static const int head = 0;

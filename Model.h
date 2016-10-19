@@ -2,9 +2,10 @@
 #define __MODEL_H 201609
 
 #include "Part.h"
-#include "Arm.h"
-#include "Battery.h"
+#include "Head.h"
 #include "Torso.h"
+#include "Battery.h"
+#include "Arm.h"
 #include "Locomotor.h"
 
 #include <iostream>
@@ -14,11 +15,20 @@ using namespace std;
 
 class Model{
   public:
-    Model();
-    void addPart(int part_type);
+    void addPart(Part p);
+    int hasSpace(int p_type);
+
     Part[] getParts();
     double getTotalCost();
     double getMaxSpeed();
+    string getModelName();
+    string getModelNumber();
+    double getSalesPrice();
+
+    void setModelName(string m_name);
+    void setModelNumber(string num);
+    void setSalesPrice();
+
   private:
     static const int head = 0;
     static const int torso = 1;
@@ -27,9 +37,9 @@ class Model{
     static const int locomotor = 4;
 
     int part_count;
-    string name;
-    int model_number;
-    double price;
-    Part[] parts;
+    string model_name;
+    string model_number;
+    double sales_price;
+    vector<Part> parts;
 };
 #endif

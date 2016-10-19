@@ -8,7 +8,7 @@ class Arm : public Part{
     Arm(): Part(Part::arm){ }
 
     //setters
-    void setPowerConsumed(double rate);
+    void setPowerConsumed(double power);
 
     //getters
     double getPowerConsumed();

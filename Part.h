@@ -34,11 +34,11 @@ class Part {
     static const int locomotor = 4;
 
   private:
-    string part_number="";
+    string part_number = "";
     int part_type;
     double weight;
     double cost;
-    string name="";
-    string description="";
+    string name = "";
+    string description = "";
 };
 #endif

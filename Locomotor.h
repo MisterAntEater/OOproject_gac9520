@@ -9,7 +9,7 @@ class Locomotor : public Part{
 
     //setters
     void setMaxSpeed(int speed);
-    void setPowerConsumed(double rate);
+    void setPowerConsumed(double power);
 
     //getters
     int getMaxSpeed();

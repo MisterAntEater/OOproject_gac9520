@@ -26,8 +26,8 @@ double Model::getTotalCost(){
 
     cost+=Model::head.getCost();
     cost+=Model::torso.getCost();
-    for(i=0; Model::batteries.size(); i++){ cost+=Model::batteries.at(i).getCost(); }
-    for(i=0; Model::arms.size(); i++){ cost+=Model::arms.at(i).getCost(); }
+    for(i=0; i<Model::batteries.size(); i++){ cost+=Model::batteries.at(i).getCost(); }
+    for(i=0; i<Model::arms.size(); i++){ cost+=Model::arms.at(i).getCost(); }
     cost+=Model::locomotor.getCost();
 
     return cost;

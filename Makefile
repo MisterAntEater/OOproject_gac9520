@@ -7,8 +7,8 @@ debug: CXXFLAGS += -g
 debug: executable
 
 rebuild: clean executable
-executable: Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o test.o
-	$(CXX) $(CXXFLAGS) Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o test.o
+executable: Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o PM.o test.o
+	$(CXX) $(CXXFLAGS) Head.o Torso.o Battery.o Arm.o Locomotor.o Part.o Model.o PM.o test.o
 Head.o: Head.cpp
 	$(CXX) $(CXXFLAGS) -w -c Head.cpp
 Torso.o: Torso.cpp
@@ -23,6 +23,8 @@ Part.o: Part.cpp
 	$(CXX) $(CXXFLAGS) -w -c Part.cpp
 Model.o: Model.cpp
 	$(CXX) $(CXXFLAGS) -w -c Model.cpp
+PM.o: PM.cpp
+	$(CXX) $(CXXFLAGS) -w -c PM.cpp
 test.o: test.cpp
 	$(CXX) $(CXXFLAGS) -w -c test.cpp
 clean:

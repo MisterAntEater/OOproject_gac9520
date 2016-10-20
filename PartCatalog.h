@@ -1,5 +1,5 @@
-#ifndef __MODEL_H
-#define __MODEL_H 201609
+#ifndef __PARTCATALOG_H
+#define __PARTCATALOG_H 201609
 
 #include "Part.h"
 #include "Head.h"
@@ -7,6 +7,7 @@
 #include "Battery.h"
 #include "Arm.h"
 #include "Locomotor.h"
+#include "PM.h"
 
 #include <iostream>
 #include <string>
@@ -14,7 +15,7 @@
 
 using namespace std;
 
-class Model{
+class PartCatalog{
   public:
     void addHead(Head h);
     void addTorso(Torso t);
@@ -22,26 +23,18 @@ class Model{
     void addArm(Arm a);
     void addLocomotor(Locomotor l);
 
-    double getTotalCost();
-    double getMaxSpeed();
-    void displayModel();
+    void viewHeads();
+    void viewTorsos();
+    void viewBatteries();
+    void viewArms();
+    void viewLocomotors();
 
-    string getModelName();
-    string getModelNumber();
-    double getSalesPrice();
+    int hasParts();
 
-    void setModelName(string m_name);
-    void setModelNumber(string num);
-    void setSalesPrice(double price);
-
-  private:
-    string model_name = "";
-    string model_number = "";
-    double sales_price;
-    Head head;
-    Torso torso;
+    vector<Head> heads;
+    vector<Torso> torsos;
     vector<Battery> batteries;
     vector<Arm> arms;
-    Locomotor locomotor;
+    vector<Locomotor> locomotors;
 };
 #endif

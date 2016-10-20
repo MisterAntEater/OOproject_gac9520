@@ -406,3 +406,20 @@ Model PM::createModel(){
 
     return m;
 }
+
+Model createModelFromCatalog(Head h, Torso t, Battery b1, Battery b2, Battery b3, Arm a1, Arm a2, Locomotor l){
+    Model m;
+
+    m.addHead(h);
+    m.addTorso(t);
+    m.addBattery(b1);
+    if(b2.getEnergyContained() != -1){ m.addBattery(b2); }
+    if(b3.getEnergyContained() != -1){ m.addBattery(b3); }
+    m.addArm(a1);
+    if(a2.getPowerConsumed() != -1){ m.addArm(a2); }
+    m.addLocomotor(l);
+
+    m.displayModel();
+
+    return m;
+}

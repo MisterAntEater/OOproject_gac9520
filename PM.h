@@ -12,7 +12,6 @@ class PM{
     Arm createArm();
     Locomotor createLocomotor();
     Model createModel();
-    void viewModels();
-    void viewParts();
+    Model createModelFromCatalog(Head h, Torso t, Battery b1, Battery b2, Battery b3, Arm a1, Arm a2, Locomotor l);
 };
 #endif

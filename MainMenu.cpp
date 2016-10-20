@@ -1,5 +1,7 @@
-#include "PM.h"
 #include "MainMenu.h"
+
+PM pm;
+//PartCatalog pc;
 
 int main(int branch){
     if(branch == 0){ return 0; }
@@ -16,7 +18,7 @@ int main(int branch){
 void askCorE(){
     int choice;
 
-    cout << "Are you a cutomer or an employee?\n";
+    cout << "Are you a customer or an employee?\n";
     cout << "  1: customer\n";
     cout << "  2: employee\n";
     cout << "  Or press ctrl+c to shutdown\n";
@@ -64,7 +66,20 @@ void askWhichEmployee(){
 
 void PMMenu(){
     int choice;
-    PM pm;
+    Battery bnull;
+    Arm anull;
+    Head h;
+    Torso t;
+    Battery b1;
+    Battery b2;
+    Battery b3;
+    Arm a1;
+    Arm a2;
+    Locomotor l;
+    Model m;
+
+    anull.setPowerConsumed(-1);
+    bnull.setEnergyContained(-1);
 
     cout << "Welcome Product Manager! What would you like to do?\n";
     cout << "  1: Create a part\n";
@@ -85,7 +100,7 @@ void PMMenu(){
             cout << "\nWhat type of part would you like to create?\n";
             cout << "  1: Create a head\n";
             cout << "  2: Create a torso\n";
-            cout << "  3: Create a battery\n";
+           // cout << "  3: Create a battery\n";
             cout << "  4: Create an Arm\n";
             cout << "  5: Create a locomotor\n";
             cout << "  6: Nevermind, I want to do something else\n";
@@ -107,10 +122,145 @@ void PMMenu(){
                 default: cout << "Sorry, that's an invalid response! Try again.\n\n";
                          PMMenu(); break;
             }
-        case 2: pm.createModel(); PMMenu(); break;
-        case 3: /*pm.viewPartsCatalog();*/ break;
-        case 4: /*pm.viewModelsCatalog();*/ break;
-        case 5: askWhichEmployee();
+        case 2:
+            /*cout << "\nWould you like to use the catalog or build on the fly?\n";
+            cout << "  1: Catalog\n";
+            cout << "  2: Freestyle\n";
+
+            cin >> choice;
+            if(cin.fail() || (choice!=1 && choice!=2)){
+                cin.clear();
+                cin.ignore(100, '\n');
+                cout << "\nInvalid input. Defaulting to on-the-fly building.\n";
+            }
+            else if(choice == 1){
+                if(pc.hasParts()){
+                    //head
+                    pc.viewHeads();
+                    cout << "\nChoose a head: ";
+
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<1 || choice>=pc.heads.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else{ h = pc.heads.at(choice); break; }
+                    }
+                    //torso
+                    pc.viewTorsos();
+                    cout << "\nChoose a torso: ";
+
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<1 || choice>=pc.torsos.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else{ t = pc.torsos.at(choice); break; }
+                    }
+                    //bat
+                    pc.viewBatteries();
+                    cout << "\nChoose a first battery: ";
+
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<1 || choice>=pc.batteries.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else{ b1 = pc.batteries.at(choice); break; }
+                    }
+
+                    cout << "\nChoose a second battery, or input 0 for only one battery.\n";
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<0 || choice>=pc.batteries.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid, try again: ";
+                            cin >> choice;
+                        }
+                        else if(choice == 0){ b2 = bnull; b3 = bnull; break; }
+                        else{
+                            b2 = pc.batteries.at(choice);
+                            cout << "\nChoose a third battery, or input 0 for just two batteries.\n";
+                            while(1){
+                                if(cin.fail() || choice<0 || choice>=pc.batteries.size()){
+                                    cin.clear();
+                                    cin.ignore(100,'\n');
+                                    cout << "\nInvalid, try again: ";
+                                    cin >> choice;
+                                }
+                                else if(choice == 0){ b3 = bnull; break; }
+                                else{ b3 = pc.batteries.at(choice); break; }
+                            }
+                            break;
+                        }
+                    }
+
+                    //arm
+                    pc.viewArms();
+                    cout << "\nChoose a first arm: ";
+
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<1 || choice>=pc.arms.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else{ a1 = pc.arms.at(choice); break; }
+                    }
+                    cout << "\nChoose a second arm, or input 0 for only one arm\n";
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<0 || choice>=pc.arms.size()){
+                            cin.clear();
+                            cin.ignore(100,'\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else if(choice == 0){ a2 = anull; break; }
+                        else{ a2 = pc.arms.at(choice); break; }
+                    }
+
+                    //loco
+                    pc.viewLocomotors();
+                    cout << "\nChoose a Locomotor: ";
+
+                    cin >> choice;
+                    while(1){
+                        if(cin.fail() || choice<1 || choice>=pc.locomotors.size()){
+                            cin.clear();
+                            cin.ignore(100, '\n');
+                            cout << "\nInvalid choice, try again: ";
+                            cin >> choice;
+                        }
+                        else{ l = pc.locomotors.at(choice); break; }
+                    }
+
+		    pm.createModelFromCatalog(h, t, b1, b2, b3, a1, a2, l);
+                    PMMenu();
+                    break;
+                }
+                else{ cout << "\nNot enough parts in catalog for a model, defaulting to on-the-fly building.\n"; }
+            }
+            else{*/
+                pm.createModel();
+                PMMenu();
+                //break;
+            //}
+//        case 3: pc.viewHeads(); pc.viewTorsos(); pc.viewBatteries(); pc.viewArms(); pc.viewLocomotors(); break;
+        case 3: /*pm.viewModelsCatalog();*/ break;
+        case 4: askWhichEmployee();
         default: cout << "Sorry, that's an invalid response! Try again.\n\n"; PMMenu(); break;
     }
 }

@@ -23,10 +23,28 @@ Head PM::createHead(){
 
     cout << "\n\tGive the weight of this head: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nYour input was invalid. Try again: ";
+            if(cin >> d) { break; }
+        }
+        else{ break; }
+    }
     h.setWeight(d);
 
     cout << "\n\tGive the cost of this head: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     h.setCost(d);
 
     return h;
@@ -55,10 +73,28 @@ Torso PM::createTorso(){
 
     cout << "\n\tGive the weight of this torso: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     t.setWeight(d);
 
     cout << "\n\tGive the cost of this torso: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     t.setCost(d);
 
     return t;
@@ -87,14 +123,41 @@ Battery PM::createBattery(){
 
     cout << "\n\tGive the weight of this battery: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     b.setWeight(d);
 
     cout << "\n\tGive the cost of this battery: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     b.setCost(d);
 
     cout << "\n\tGive the max capacity of this battery: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     b.setEnergyContained(d);
 
     return b;
@@ -123,14 +186,41 @@ Arm PM::createArm(){
 
     cout << "\n\tGive the weight of this arm: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     a.setWeight(d);
 
     cout << "\n\tGive the cost of this arm: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     a.setCost(d);
 
     cout << "\n\tGive the power consumption of this arm: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     a.setPowerConsumed(d);
 
     return a;
@@ -160,18 +250,54 @@ Locomotor PM::createLocomotor(){
 
     cout << "\n\tGive the weight of this locomotor: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     l.setWeight(d);
 
     cout << "\n\tGive the cost of this locomotor: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     l.setCost(d);
 
     cout << "\n\tGive the power consumption of this locomotor: ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> d;
+        }
+        else{ break; }
+    }
     l.setPowerConsumed(d);
 
     cout << "\n\tGive the max speed of this locomotor: ";
     cin >> i;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cout << "\nYour input was invalid. Try again: ";
+            cin.ignore(100, '\n');
+            cin >> i;
+        }
+        else{ break; }
+    }
     l.setMaxSpeed(i);
 
     return l;
@@ -207,15 +333,35 @@ Model PM::createModel(){
     m.addBattery(b1);
     cout << "\nWould you like to add a second battery?\n  1:yes\n  2:no\n";
     cin >> boo;
-    if(boo==1){
-        Battery b2 = createBattery();
-        m.addBattery(b2);
-        cout << "\nWould you like to add a third battery?\n  1:yes\n  2:no\n";
-        cin >> boo;
-        if(boo==1){
-            Battery b3 = createBattery();
-            m.addBattery(b3);
+    while(1){
+        if(cin.fail() || (boo!=1 && boo!=2)){
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nYour input was invalid. Try again: ";
+            cin >> boo;
         }
+        else if(boo==1){
+            Battery b2 = createBattery();
+            m.addBattery(b2);
+            cout << "\nWould you like to add a third battery?\n  1:yes\n  2:no\n";
+            cin >> boo;
+            while(1){
+                if(cin.fail() || (boo!=1 && boo!=2)){
+                    cin.clear();
+                    cin.ignore(100, '\n');
+                    cout << "\nYour input was invalid. Try again: ";
+                    cin >> boo;
+                }
+                else if(boo==1){
+                    Battery b3 = createBattery();
+                    m.addBattery(b3);
+                    break;
+                }
+                else if(boo==2){ break; }
+            }
+            break;
+        }
+        else if(boo==2){ break; }
     }
 
     cout << "\nCreate an arm for your model";
@@ -223,9 +369,19 @@ Model PM::createModel(){
     m.addArm(a1);
     cout << "\nWould you like to add a second arm?\n  1:yes\n  2:no\n";
     cin >> boo;
-    if(boo==1){
-        Arm a2 = createArm();
-        m.addArm(a2);
+    while(1){
+        if(cin.fail() || (boo!=1 && boo!=2)){
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nYour input was invalid. Try again: ";
+            cin >> boo;
+        }
+        else if(boo==1){
+            Arm a2 = createArm();
+            m.addArm(a2);
+            break;
+        }
+        else if(boo==2){ break; }
     }
 
     cout << "\nCreate a locomotor for your model";
@@ -234,6 +390,15 @@ Model PM::createModel(){
 
     cout << "Give this model a sales price (the total cost is: " << m.getTotalCost() << "): ";
     cin >> d;
+    while(1){
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nYour input was invalid. Try again:";
+            cin >> d;
+        }
+        else{ break; }
+    }
     m.setSalesPrice(d);
 
     cout << "\n\n~~~~~~~~~~~~~~~~~~~~\nFinished model: \n~~~~~~~~~~~~~~~~~~~~\n\n";

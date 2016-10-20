@@ -1,7 +1,8 @@
 #include "PM.h"
 #include "MainMenu.h"
 
-int main(){
+int main(int branch){
+    if(branch == 0){ return 0; }
            //123456789012345678901234567890123456789
     cout << "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n";
     cout << "|+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+|\n";
@@ -9,6 +10,7 @@ int main(){
     cout << "|+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+|\n";
     cout << "+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n\n";
     askCorE();
+    return 0;
 }
 
 void askCorE(){
@@ -17,11 +19,17 @@ void askCorE(){
     cout << "Are you a cutomer or an employee?\n";
     cout << "  1: customer\n";
     cout << "  2: employee\n";
+    cout << "  Or press ctrl+c to shutdown\n";
 
     cin >> choice;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(100, '\n');
+        choice = -1;
+    }
 
     if(choice == 1){ /*BCMenu();*/ }
-    if(choice == 2){ askWhichEmployee(); }
+    else if(choice == 2){ askWhichEmployee(); }
     else{
         cout << "Sorry, that's an invalid response! Try again.\n\n";
         askCorE();
@@ -35,12 +43,19 @@ void askWhichEmployee(){
     cout << "  1: PM\n";
     cout << "  2: SA\n";
     cout << "  3: PB\n";
+    cout << "  4: Go back to the last menu\n";
 
     cin >> choice;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(100, '\n');
+        choice = -1;
+    }
 
     if(choice == 1){ PMMenu(); }
-    if(choice == 2){/* MainMenu::SAMenu();*/ }
-    if(choice == 3){/* MainMenu::PBMenu();*/ }
+    else if(choice == 2){/* MainMenu::SAMenu();*/ }
+    else if(choice == 3){/* MainMenu::PBMenu();*/ }
+    else if(choice == 4){ askCorE(); }
     else{
         cout << "Sorry, that's an invalid response! Try again.\n\n";
         askWhichEmployee();
@@ -57,9 +72,13 @@ void PMMenu(){
     cout << "  3: View parts\n";
     cout << "  4: View models\n";
     cout << "  5: Go back to the last menu\n";
-    cout << "  6: Exit the program\n";
 
     cin >> choice;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(100, '\n');
+        choice = -1;
+    }
 
     switch (choice) {
         case 1:
@@ -72,6 +91,11 @@ void PMMenu(){
             cout << "  6: Nevermind, I want to do something else\n";
 
             cin >> choice;
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(100, '\n');
+                choice = -1;
+            }
 
             switch (choice) {
                 case 1: pm.createHead(); PMMenu(); break;
@@ -87,10 +111,6 @@ void PMMenu(){
         case 3: /*pm.viewPartsCatalog();*/ break;
         case 4: /*pm.viewModelsCatalog();*/ break;
         case 5: askWhichEmployee();
-        case 6:
-            exitShop();
-            cout << "\nSince you changed your mind, you can start this menu over.\n";
-            PMMenu();
         default: cout << "Sorry, that's an invalid response! Try again.\n\n"; PMMenu(); break;
     }
 }
@@ -103,19 +123,3 @@ void BCMenu(){
 
 }
 */
-void exitShop(){
-    int choice;
-
-    cout << "Are you sure you want to exit the program?\n";
-    cout << "  1: yes\n";
-    cout << "  2: no\n";
-
-    cin >> choice;
-
-    if(choice == 1){ cout << "\n\nGoodbye!\n\n"; exit(); }
-    else if(choice == 2){}
-    else{
-        cout << "Sorry, that's an invalid response! Try again.\n\n";
-        exitShop();
-    }
-}

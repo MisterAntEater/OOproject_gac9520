@@ -9,11 +9,11 @@
 
 using namespace std;
 
-int main();
+int main(int branch);
 void askCorE();
 void askWhichEmployee();
 void PMMenu();
 void SAMenu();
 void BCMenu();
-void exitShop();
+int exitShop();
 #endif

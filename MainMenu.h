@@ -1,7 +1,9 @@
 #ifndef __MAINMENU_H
 #define __MAINMENU_H 201609
 
+#include "ModelCatalog.h"
 #include "PM.h"
+#include "Order.h"
 //#include "PartCatalog.h"
 
 #include <iostream>
@@ -17,4 +19,5 @@ void PMMenu();
 void SAMenu();
 void BCMenu();
 int exitShop();
+void createOrder();
 #endif
